@@ -1,4 +1,4 @@
-// Ksawery Józefowski 277513 zadanie 1
+// Ksawery Józefowski 277513 zadanie 2a
 
 #include <iostream>
 #include <cstdio>
