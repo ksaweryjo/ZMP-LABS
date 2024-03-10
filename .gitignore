@@ -72,6 +72,8 @@
 .idea/modules.xml
 .idea/*.iml
 .idea/modules
+.idea/.gitignore
+.idea/vcs.xml
 *.iml
 *.ipr
 
