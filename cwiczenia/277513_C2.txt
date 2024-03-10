@@ -1,0 +1,8 @@
+Negacja (NOT):
+        Działanie arytmetyczne: 1 - x
+Koniuńkcja (AND):
+        Działanie arytmetyczne: x * y
+Alternatywa (OR):
+        Działanie arytmetyczne: x + y
+Alternatywa wykluczająca (XOR):
+        Działanie arytmetyczne: |x - y|

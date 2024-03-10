@@ -1,0 +1,22 @@
+bool isPerfect(int n) {
+    int var1 = 1;
+
+    for (int i = 2; i * i <= n; ++i) {
+        if (n % i == 0) {
+            var1 += i;
+            if (i * i != n) {
+                var1 += n / i;
+            }
+        }
+    }
+
+    return var1 == n;
+}
+
+void PerfectNums(int n) {
+    for (int i = 2; i <= n; ++i) {
+        if (isPerfect(i)) {
+            std::cout << i << std::endl;
+        }
+    }
+}

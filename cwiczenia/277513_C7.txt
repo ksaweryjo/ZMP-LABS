@@ -1,0 +1,13 @@
+int fastmultiplication(int a, int b) {
+    int wynik = 0;
+
+    while (b != 0) {
+        if (b & 1) {
+            wynik += a;
+        }
+        a <<= 1;
+        b >>= 1;
+    }
+
+    return wynik;
+}

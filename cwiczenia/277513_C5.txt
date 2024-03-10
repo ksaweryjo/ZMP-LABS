@@ -1,0 +1,5 @@
+int getKthBit(int n, int k) {
+    int shifted = n >> k;
+    int bit = shifted & 1;
+    return bit;
+}

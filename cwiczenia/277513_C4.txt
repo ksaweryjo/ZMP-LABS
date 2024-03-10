@@ -1,0 +1,4 @@
+Inicjujemy zmienną suma_bitów na zero.
+Wykonujemy operację bitową OR na bajcie x z każdym ustalonym bajtem i dodajemy wynik do sumy_bitów.
+Powtarzamy ten krok dla wszystkich ustalonych bajtów.
+Suma bitów x będzie wynikiem końcowym w zmiennej suma_bitów.
