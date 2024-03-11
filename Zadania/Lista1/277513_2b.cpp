@@ -19,7 +19,7 @@ int gcd(int a, int b) // Największy wspólny dzielnik
 
 int euler(int n){
     int result = 0;
-    for (int i = 1; i < n; i++){
+    for (int i = 1; i <= n; i++){
         if (gcd(n, i) == 1){
             result++;
         }
@@ -29,7 +29,7 @@ int euler(int n){
 
 int F_function(int n){
     int result = 0;
-    for (int i = 1; i < n; i++){
+    for (int i = 1; i <= n; i++){
         if (n % i == 0){
             result += euler(i);
         }
