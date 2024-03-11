@@ -12,9 +12,6 @@
 # Zadania
 Są to drugie części list
 
-# Cwiczenia
-Są to pierwsze części list
-
 # To-Do
 Lista    | Done
 ---------|-------------- 
