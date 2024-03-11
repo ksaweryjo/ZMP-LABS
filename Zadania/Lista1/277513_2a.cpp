@@ -24,7 +24,7 @@ int euler(int n){
             result++;
         }
     }
-    return std::abs(result); // We wzorze jest abs ale nie wiem czy to jest potrzebne
+    return result;
 }
 
 int main (){
