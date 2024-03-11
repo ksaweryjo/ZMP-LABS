@@ -1,4 +1,0 @@
-Z wykorzystaniem dodawania i NOT:
-x+¬y+1
-Bez użycia 1:
-x+¬y−0
