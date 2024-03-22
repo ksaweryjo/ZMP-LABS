@@ -1,14 +1,15 @@
-// Ksawery Józefowski 277513 zadanie 1a
+// Ksawery Józefowski nr 277513 zadanie 1a
 
 #include <iostream>
 #include <cstdio>
 
 int var1;
 
+// Liczmy od zera więc wydaje mi się, że 0 powinno być pod indeksem 0
 int iter_Fibonacci(int n){
     int a = 0, b = 1, c;
     if (n == 0){
-        return a;
+        return 0;
     }
     for(int i = 2; i <= n; i++){
         c = a + b;

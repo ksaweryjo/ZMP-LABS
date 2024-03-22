@@ -13,24 +13,27 @@ void num_check(){
         return;
     }
     for (int i = 0; i < var1-1; i++){
-        if (arr1[i] == arr1[var1-1]){
-            n++;
+        // Dzięki posortowanej tablicy możemy użyć continue,
+        // które będzie skipować iteracje jak i możemy dodać drugiego break,
+        // aby nie musieć sprawdzać całej tablicy
+        if (arr1[i] < arr1[var1-1]){
+            if (i == var1-2){
+                printf("Nie");
+            }
+            continue;
         }
-    }
-    if (n >= 1){
-        printf("Tak\n");
-    }
-    else {
-        printf("Nie\n");
+        if (arr1[i] > arr1[var1-1]){
+            printf("Nie");
+            break;
+        }
+        if (arr1[i] == arr1[var1-1]){
+            printf("Tak");
+            break;
+        }
     }
 }
 
 int main(){
-    /* Nie zauważam sęsu wczytywania ręcznie 1000 liczb więc można określić
-    jej rozmiar dla ułatwienia sprawdzania
-    chyba, że chodziło o sprawdzanie inputa z pliku, ale wydaje mi się, że powinno
-    to być zaznaczone w treści zadania */
-
     printf("Podaj rozmiar tablicy: ");
     scanf("%d", &var1);
     if (var1 == 0){

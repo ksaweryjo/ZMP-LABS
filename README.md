@@ -16,7 +16,7 @@ Są to drugie części list
 Lista    | Done
 ---------|-------------- 
 Lista 1  | ✓  
-Lista 2  | X  
+Lista 2  | ✓  
 Lista 3  | X  
 Lista 4  | X 
 Tba      | Tba 
