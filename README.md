@@ -10,7 +10,7 @@
 </p>
 
 # Zadania
-Są to drugie części list
+Są to Rozwiązane Listy
 
 # To-Do
 Lista    | Done
