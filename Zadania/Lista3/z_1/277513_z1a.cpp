@@ -10,9 +10,8 @@ void Game(int matches){
     while (matches > 1) {
         // Player 1
         do {
-            // Jakaś informacja zwrotna przy złym ruchu
-            if(temp != 0){ // Chciałem to wrzucaćna stderr, ale jakoś się psuje wygląd
-                printf("Nielegalny Ruch, Powtorz\n\n");
+            if(temp != 0){
+                printf("Nielegalny Ruch, Powtorz\n");
             }
             printf("Ruch Gracza nr 1: ");
             scanf("%d", &p1);
@@ -25,7 +24,7 @@ void Game(int matches){
             printf("Gracz nr 2 Przegral");
             break;
         }
-            // Jest opcja, żę zostanie 2-3 zapałek i ktoś je wszystkie weźmie
+        // Jest opcja, żę zostanie 2-3 zapałek i ktoś je wszystkie weźmie
         else if (matches < 1){
             printf("Gracz nr 1 Przegral");
             break;
@@ -34,7 +33,7 @@ void Game(int matches){
         // Player 2
         do {
             if(temp != 0){
-                printf("Nielegalny Ruch, Powtorz");
+                printf("Nielegalny Ruch, Powtorz\n");
             }
             printf("Ruch Gracza nr 2: ");
             scanf("%d", &p2);
@@ -51,6 +50,7 @@ void Game(int matches){
             printf("Gracz nr 2 Przegral");
             break;
         }
+        printf("Aktualny stan zapalek: %d\n", matches);
     }
 }
 
