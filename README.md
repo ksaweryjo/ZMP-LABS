@@ -17,7 +17,7 @@ Lista    | Done
 ---------|-------------- 
 Lista 1  | ✓  
 Lista 2  | ✓  
-Lista 3  | X  
+Lista 3  | ✓ 
 Lista 4  | X 
 Tba      | Tba 
 
