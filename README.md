@@ -18,7 +18,10 @@ Lista    | Done
 Lista 1  | ✓  
 Lista 2  | ✓  
 Lista 3  | ✓ 
-Lista 4  | X 
+Lista 4  | ✓ 
+Lista 5  | ✓ 
+Lista 6  | X
+Lista 7  | X 
 Tba      | Tba 
 
 # How to install
