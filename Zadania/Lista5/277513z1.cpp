@@ -11,7 +11,7 @@ struct Node {
     Node* right;
     int height;
 
-    Node(int val) : key(val), left(nullptr), right(nullptr), height(1) {}
+    Node(int var1): key(var1), left(nullptr), right(nullptr), height(1) {}
 };
 
 int Height(Node* root) {
@@ -21,14 +21,14 @@ int Height(Node* root) {
     return max(Height(root->left), Height(root->right)) + 1;
 }
 
-bool searchTree(Node* root, int data) {
+bool searchTree(Node* root, int key) {
     if (root == nullptr) {
         return false;
     }
-    else if (root->key == data) {
+    else if (root->key == key) {
         return true;
     }
-    return searchTree(root->left, data) || searchTree(root->right, data);
+    return searchTree(root->left, key) || searchTree(root->right, key);
 }
 
 void countLnN(Node* root, int& leaves, int& Nodes) {
@@ -45,11 +45,18 @@ void countLnN(Node* root, int& leaves, int& Nodes) {
     countLnN(root->right, leaves, Nodes);
 }
 
-int Balance(Node* N) {
-    if (N == nullptr) {
+Node* mergeTrees(Node* root1, Node* root2, int var1) {
+    Node* newRoot = new Node(var1);
+    newRoot->left = root1;
+    newRoot->right = root2;
+    return newRoot;
+}
+
+int Balance(Node* root) {
+    if (root == nullptr) {
         return 0;
     }
-    return Height(N->left) - Height(N->right);
+    return Height(root->left) - Height(root->right);
 }
 
 Node* rightRotate(Node* y) {
@@ -57,8 +64,8 @@ Node* rightRotate(Node* y) {
     Node* T2 = x->right;
     x->right = y;
     y->left = T2;
-    y->height = max(Height(y->left), Height(y->right)) + 1;
-    x->height = max(Height(x->left), Height(x->right)) + 1;
+    y->height = Height(y);
+    x->height = Height(x);
     return x;
 }
 
@@ -67,8 +74,8 @@ Node* leftRotate(Node* x) {
     Node* T2 = y->left;
     y->left = x;
     x->right = T2;
-    x->height = max(Height(x->left), Height(x->right)) + 1;
-    y->height = max(Height(y->left), Height(y->right)) + 1;
+    x->height = Height(x);
+    y->height = Height(y);
     return y;
 }
 
@@ -111,13 +118,13 @@ void printTree(Node* root, int space) {
         return;
     }
     space += 3;
-    printTree(root->right, space); // Prawa strona pod drzew
+    printTree(root->right, space); // Prawa strona poddrzew
     printf("\n");
-    for (int i = 3; i < space; i++) { // "Środek" pod drzew
+    for (int i = 3; i < space; i++) { // "Środek" poddrzew
         printf(" ");
     }
     printf("%d\n", root->key);
-    printTree(root->left, space); // Lewa strona pod drzew
+    printTree(root->left, space); // Lewa strona poddrzew
 }
 
 int main() {
@@ -130,7 +137,7 @@ int main() {
 
     int *arr = new int[n];
     for (int i = 0; i < n; i++) {
-        printf("Podaj element %d: ", n - i);
+        printf("Podaj element %d: ", n-i);
         scanf_s("%d", &arr[i]);
     }
     for (int i = 0; i < n; i++) {
@@ -142,11 +149,14 @@ int main() {
     int nodes = 0;
     countLnN(root, leaves, nodes);
     printf("Liczba lisci: %d\n", leaves);
-    printf("Liczba nodes: %d\n", nodes - 1); // Zakłądam że root i leaves nie są nodem
+    printf("Liczba nodes: %d\n", nodes - 1); // Zakładam że root i leaves nie są nodem
 
     int h = Height(root);
     printf("Wysokosc drzewa: %d\n", h);
 
     printTree(root, 0);
+
+    // TreeNode* mergedTree = mergeTrees(root1, root2, 10);
+    delete[] arr;
     return 0;
 }
