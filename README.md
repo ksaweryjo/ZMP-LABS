@@ -20,7 +20,7 @@ Lista 2  | ✓
 Lista 3  | ✓ 
 Lista 4  | ✓ 
 Lista 5  | ✓ 
-Lista 6  | X
+Lista 6  | ✓
 Lista 7  | X 
 Tba      | Tba 
 
