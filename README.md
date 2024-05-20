@@ -21,7 +21,9 @@ Lista 3  | ✓
 Lista 4  | ✓ 
 Lista 5  | ✓ 
 Lista 6  | ✓
-Lista 7  | X 
+Lista 7  | ✓ 
+Lista 8  | X 
+Lista 9  | X
 Tba      | Tba 
 
 # How to install
