@@ -165,6 +165,7 @@ int main() {
     BST t1(values1);
     BST t2(values2);
 
+    // In-order printing
     printf("Drzewo t1: ");
     t1.sort();
 
