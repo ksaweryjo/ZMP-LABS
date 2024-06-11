@@ -6,6 +6,5 @@ int main(int argc, char *argv[]) {
 
     MainMenu mainMenu;
     mainMenu.show();
-
     return a.exec();
 }

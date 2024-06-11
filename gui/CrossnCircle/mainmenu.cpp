@@ -19,17 +19,18 @@ void MainMenu::on_StartB_clicked()
 {
     MainWindow *mainWindow = new MainWindow();
     mainWindow->show();
-
     this->close();
 }
 
 bool MainMenu::Playerf = true;
-bool MainMenu::Computerf;
+bool MainMenu::Computerf = false;
 
 void MainMenu::on_PlayerB_clicked()
 {
     Playerf = true;
     Computerf = false;
+    ui->PlayerB->setEnabled(false);
+    ui->ComputerB->setEnabled(true);
 }
 
 
@@ -37,5 +38,9 @@ void MainMenu::on_ComputerB_clicked()
 {
     Computerf = true;
     Playerf = false;
+    ui->PlayerB->setEnabled(true);
+    ui->ComputerB->setEnabled(false);
 }
+
+
 

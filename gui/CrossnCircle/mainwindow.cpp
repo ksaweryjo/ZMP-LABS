@@ -16,217 +16,169 @@ MainWindow::~MainWindow()
     delete ui;
 }
 
-void MainWindow::on_B1_clicked()
+void MainWindow::showEvent(QShowEvent *event)
 {
-    if (MainMenu::Playerf == true)
-    {
-        ui->B1->setText("X");
-        ui->B1->setEnabled(false);
-        // Check for game result
-        checkGameResult();
-        // Switch turn to computer
-
-        // Let computer play
-        computerMove();
-        // Check for game result again after computer's move
-        checkGameResult();
-    }
-}
-void MainWindow::on_B2_clicked()
-{
-    if (MainMenu::Playerf == true)
-    {
-        ui->B2->setText("X");
-        ui->B2->setEnabled(false);
-        // Check for game result
-        checkGameResult();
-        // Switch turn to computer
-
-        // Let computer play
-        computerMove();
-        // Check for game result again after computer's move
-        checkGameResult();
-    }
-}
-void MainWindow::on_B3_clicked()
-{
-    if (MainMenu::Playerf == true)
-    {
-        ui->B3->setText("X");
-        ui->B3->setEnabled(false);
-        // Check for game result
-        checkGameResult();
-        // Switch turn to computer
-
-        // Let computer play
-        computerMove();
-        // Check for game result again after computer's move
-        checkGameResult();
-    }
-}
-void MainWindow::on_B4_clicked()
-{
-    if (MainMenu::Playerf == true)
-    {
-        ui->B4->setText("X");
-        ui->B4->setEnabled(false);
-        // Check for game result
-        checkGameResult();
-        // Switch turn to computer
-
-        // Let computer play
-        computerMove();
-        // Check for game result again after computer's move
-        checkGameResult();
-    }
-}
-void MainWindow::on_B5_clicked()
-{
-    if (MainMenu::Playerf == true)
-    {
-        ui->B5->setText("X");
-        ui->B5->setEnabled(false);
-        // Check for game result
-        checkGameResult();
-        // Switch turn to computer
-
-        // Let computer play
-        computerMove();
-        // Check for game result again after computer's move
-        checkGameResult();
-    }
-}
-void MainWindow::on_B6_clicked()
-{
-    if (MainMenu::Playerf == true)
-    {
-        ui->B6->setText("X");
-        ui->B6->setEnabled(false);
-        // Check for game result
-        checkGameResult();
-        // Switch turn to computer
-
-        // Let computer play
-        computerMove();
-        // Check for game result again after computer's move
-        checkGameResult();
-    }
-}
-void MainWindow::on_B7_clicked()
-{
-    if (MainMenu::Playerf == true)
-    {
-        ui->B7->setText("X");
-        ui->B7->setEnabled(false);
-        // Check for game result
-        checkGameResult();
-        // Switch turn to computer
-
-        // Let computer play
-        computerMove();
-        // Check for game result again after computer's move
-        checkGameResult();
-    }
-}
-void MainWindow::on_B8_clicked()
-{
-    if (MainMenu::Playerf == true)
-    {
-        ui->B8->setText("X");
-        ui->B8->setEnabled(false);
-        // Check for game result
-        checkGameResult();
-        // Switch turn to computer
-
-        // Let computer play
-        computerMove();
-        // Check for game result again after computer's move
-        checkGameResult();
-    }
-}
-void MainWindow::on_B9_clicked()
-{
-    if (MainMenu::Playerf == true)
-    {
-        ui->B9->setText("X");
-        ui->B9->setEnabled(false);
-        // Check for game result
-        checkGameResult();
-        // Switch turn to computer
-
-        // Let computer play
-        computerMove();
-        // Check for game result again after computer's move
-        checkGameResult();
-    }
+    QMainWindow::showEvent(event);
+    StartAI();
 }
 
-
-void MainWindow::on_StartAI_clicked()
+void MainWindow::StartAI()
 {
-    if (MainMenu::Computerf == true)
+    if (MainMenu::Computerf)
     {
-        ui->B5->setText("O");
-        ui->B5->setEnabled(false);
+        computerMove();
         MainMenu::Playerf = true;
-        MainMenu::Computerf = false;
     }
 }
 
-
-void MainWindow::checkGameResult()
+void MainWindow::on_Restart_clicked()
 {
-    // Check rows
-    if ((ui->B1->text() == "X" && ui->B2->text() == "X" && ui->B3->text() == "X") ||
-        (ui->B4->text() == "X" && ui->B5->text() == "X" && ui->B6->text() == "X") ||
-        (ui->B7->text() == "X" && ui->B9->text() == "X" && ui->B8->text() == "X"))
+    resetBoard();
+    if (MainMenu::Computerf)
     {
-        // Player wins
-        qDebug() << "Player wins!";
+        computerMove();
     }
-    // Check columns
-    else if ((ui->B1->text() == "X" && ui->B4->text() == "X" && ui->B7->text() == "X") ||
-             (ui->B2->text() == "X" && ui->B5->text() == "X" && ui->B9->text() == "X") ||
-             (ui->B3->text() == "X" && ui->B6->text() == "X" && ui->B8->text() == "X"))
-    {
-        // Player wins
-        qDebug() << "Player wins!";
+}
+
+void MainWindow::resetBoard()
+{
+    QPushButton* buttons[9] = {ui->B1, ui->B2, ui->B3, ui->B4, ui->B5, ui->B6, ui->B7, ui->B8, ui->B9};
+    for (QPushButton* button : buttons) {
+        button->setText("");
+        button->setEnabled(true);
     }
-    // Check diagonals
-    else if ((ui->B1->text() == "X" && ui->B5->text() == "X" && ui->B8->text() == "X") ||
-             (ui->B3->text() == "X" && ui->B5->text() == "X" && ui->B7->text() == "X"))
+    ui->Winner->setText("");
+}
+
+void MainWindow::on_B1_clicked() { handlePlayerMove(ui->B1); }
+void MainWindow::on_B2_clicked() { handlePlayerMove(ui->B2); }
+void MainWindow::on_B3_clicked() { handlePlayerMove(ui->B3); }
+void MainWindow::on_B4_clicked() { handlePlayerMove(ui->B4); }
+void MainWindow::on_B5_clicked() { handlePlayerMove(ui->B5); }
+void MainWindow::on_B6_clicked() { handlePlayerMove(ui->B6); }
+void MainWindow::on_B7_clicked() { handlePlayerMove(ui->B7); }
+void MainWindow::on_B8_clicked() { handlePlayerMove(ui->B8); }
+void MainWindow::on_B9_clicked() { handlePlayerMove(ui->B9); }
+
+void MainWindow::handlePlayerMove(QPushButton* button)
+{
+    if (MainMenu::Playerf && !checkGameResult() && button->text().isEmpty())
     {
-        // Player wins
-        qDebug() << "Player wins!";
-    }
-    // Check for a draw
-    else
-    {
-        qDebug() << "No winner yet.";
+        button->setText("x");
+        button->setEnabled(false);
+        if (!checkGameResult())
+        {
+            computerMove();
+            checkGameResult();
+        }
     }
 }
 
 void MainWindow::computerMove()
 {
-    // Implement the computer's move here using an AI algorithm
-    // You can use the minimax algorithm with or without alpha-beta pruning
-    // Here, let's just choose a random empty cell for the computer's move
-    QList<QPushButton*> emptyCells;
-    if (ui->B1->text().isEmpty()) emptyCells.append(ui->B1);
-    if (ui->B8->text().isEmpty()) emptyCells.append(ui->B8);
-    if (ui->B9->text().isEmpty()) emptyCells.append(ui->B9);
-    if (ui->B7->text().isEmpty()) emptyCells.append(ui->B7);
-    if (ui->B6->text().isEmpty()) emptyCells.append(ui->B6);
-    if (ui->B5->text().isEmpty()) emptyCells.append(ui->B5);
-    if (ui->B4->text().isEmpty()) emptyCells.append(ui->B4);
-    if (ui->B3->text().isEmpty()) emptyCells.append(ui->B3);
-    if (ui->B2->text().isEmpty()) emptyCells.append(ui->B2);
-    // Add other buttons similarly
-    if (!emptyCells.isEmpty()) {
-        QPushButton* button = emptyCells[QRandomGenerator::global()->bounded(emptyCells.size())];
-        button->setText("O"); // Assuming computer uses "O"
-        button->setEnabled(false);
+    int move = -1;
 
+    if (checkWinMove('o', move)) {
+        QPushButton* button = findChild<QPushButton*>(QString("B%1").arg(move + 1));
+        if (button) {
+            button->setText("o");
+            button->setEnabled(false);
+            return;
+        }
+    }
+
+    if (checkWinMove('x', move)) {
+        QPushButton* button = findChild<QPushButton*>(QString("B%1").arg(move + 1));
+        if (button) {
+            button->setText("o");
+            button->setEnabled(false);
+            return;
+        }
+    }
+
+    if (ui->B5->text().isEmpty()) {
+        ui->B5->setText("o");
+        ui->B5->setEnabled(false);
+        return;
+    }
+
+    int corners[] = {0, 2, 6, 8};
+    for (int i = 0; i < 4; ++i) {
+        QPushButton* button = findChild<QPushButton*>(QString("B%1").arg(corners[i] + 1));
+        if (button && button->text().isEmpty()) {
+            button->setText("o");
+            button->setEnabled(false);
+            return;
+        }
+    }
+
+    for (int i = 0; i < 9; ++i) {
+        QPushButton* button = findChild<QPushButton*>(QString("B%1").arg(i + 1));
+        if (button && button->text().isEmpty()) {
+            button->setText("o");
+            button->setEnabled(false);
+            return;
+        }
     }
 }
 
+bool MainWindow::checkWin(QChar player)
+{
+    const int winCombinations[8][3] = {
+        {0, 1, 2}, {3, 4, 5}, {6, 7, 8},
+        {0, 3, 6}, {1, 4, 7}, {2, 5, 8},
+        {0, 4, 8}, {2, 4, 6}
+    };
+
+    for (int i = 0; i < 8; ++i) {
+        if (findChild<QPushButton*>(QString("B%1").arg(winCombinations[i][0] + 1))->text() == player &&
+            findChild<QPushButton*>(QString("B%1").arg(winCombinations[i][1] + 1))->text() == player &&
+            findChild<QPushButton*>(QString("B%1").arg(winCombinations[i][2] + 1))->text() == player) {
+            return true;
+        }
+    }
+    return false;
+}
+
+bool MainWindow::checkWinMove(QChar player, int &move)
+{
+    for (int i = 0; i < 9; ++i) {
+        QPushButton* button = findChild<QPushButton*>(QString("B%1").arg(i + 1));
+        if (button && button->text().isEmpty()) {
+            button->setText(player);
+            if (checkWin(player)) {
+                button->setText("");
+                move = i;
+                return true;
+            }
+            button->setText("");
+        }
+    }
+    return false;
+}
+
+bool MainWindow::checkGameResult()
+{
+    if (checkWin('x')) {
+        ui->Winner->setText("Player Wins");
+        return true;
+    } else if (checkWin('o')) {
+        ui->Winner->setText("AI Wins");
+        return true;
+    } else if (isBoardFull()) {
+        ui->Winner->setText("DRAW");
+        return true;
+    }
+    return false;
+}
+
+bool MainWindow::isBoardFull()
+{
+    for (int i = 0; i < 9; ++i) {
+        QPushButton* button = findChild<QPushButton*>(QString("B%1").arg(i + 1));
+        if (button && button->text().isEmpty()) {
+            return false;
+        }
+    }
+    return true;
+}

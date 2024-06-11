@@ -23,7 +23,6 @@ private slots:
     void on_PlayerB_clicked();
 
     void on_ComputerB_clicked();
-
 private:
     Ui::MainMenu *ui;
 };
