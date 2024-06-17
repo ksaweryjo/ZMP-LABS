@@ -32,6 +32,9 @@ int main() {
     Vector3d v1(v1x, v1y, v1z);
     Vector3d v2(v2x, v2y, v2z);
 
+    v1.display();
+    v2.display();
+    
     Vector3d av = v1.add(v2);
     printf("Suma wektorow: ");
     av.display();
